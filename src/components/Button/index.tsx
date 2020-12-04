@@ -7,12 +7,19 @@ export type ButtonTypes =
 
 export type ButtonProps = {
   size?: 'small' | 'medium' | 'large'
+  fullWidth?: boolean
   icon?: JSX.Element
   as?: React.ElementType
 } & ButtonTypes
 
-const Button = ({ children, size = 'large', icon, ...props }: ButtonProps) => (
-  <S.Container size={size} hasIcon={!!icon} {...props}>
+const Button = ({
+  children,
+  size = 'large',
+  fullWidth = false,
+  icon,
+  ...props
+}: ButtonProps) => (
+  <S.Container size={size} hasIcon={!!icon} fullWidth={fullWidth} {...props}>
     {icon}
     {!!children && <span>{children}</span>}
   </S.Container>
