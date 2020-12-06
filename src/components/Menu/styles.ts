@@ -50,7 +50,6 @@ export const MenuLink = styled.a`
     position: relative;
     font-size: ${theme.font.sizes.medium};
     text-decoration: none;
-    color: ${theme.colors.white};
     margin: 0.3rem ${theme.spacings.small} 0;
     text-align: center;
 
@@ -110,6 +109,8 @@ export const FullMenu = styled.nav<FullMenuProps>`
       font-size: ${theme.font.sizes.xlarge};
       font-weight: ${theme.font.bold};
       margin-bottom: ${theme.spacings.small};
+      transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
+      transition: transform 0.3s ease-in-out;
     }
 
     ${MenuNav} {
@@ -118,6 +119,11 @@ export const FullMenu = styled.nav<FullMenuProps>`
       align-items: center;
       justify-content: center;
       flex: 1;
+    }
+
+    ${RegisterBox} {
+      transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
+      transition: transform 0.3s ease-in-out;
     }
   `}
 `
