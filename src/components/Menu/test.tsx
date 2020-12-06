@@ -13,10 +13,11 @@ describe('<Menu />', () => {
     expect(screen.getByRole('img', { name: /won games/i })).toBeInTheDocument()
   })
 
-  it('should open/close the mobile menu', () => {
+  it('should handle the open/close mobile menu', () => {
     renderWithTheme(<Menu />)
 
     const fullMenuElement = screen.getByRole('navigation', { hidden: true })
+
     expect(fullMenuElement.getAttribute('aria-hidden')).toBe('true')
     expect(fullMenuElement).toHaveStyle({ opacity: 0 })
 
@@ -27,5 +28,23 @@ describe('<Menu />', () => {
     fireEvent.click(screen.getByLabelText(/close menu/i))
     expect(fullMenuElement.getAttribute('aria-hidden')).toBe('true')
     expect(fullMenuElement).toHaveStyle({ opacity: 0 })
+  })
+
+  it('should show a register box when logged out', () => {
+    renderWithTheme(<Menu />)
+
+    expect(screen.queryByText(/My account/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/Wishlist/i)).not.toBeInTheDocument()
+    expect(screen.getByText(/sign up/i)).toBeInTheDocument()
+    expect(screen.getByText(/log in now/i)).toBeInTheDocument()
+  })
+
+  it('should show a wishlist when logged', () => {
+    renderWithTheme(<Menu username="romulo" />)
+
+    expect(screen.getByText(/My account/i)).toBeInTheDocument()
+    expect(screen.getByText(/Wishlist/i)).toBeInTheDocument()
+    expect(screen.queryByText(/sign up/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/log in now/i)).not.toBeInTheDocument()
   })
 })
