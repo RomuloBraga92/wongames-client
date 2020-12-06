@@ -9,6 +9,7 @@ export default {
 export const Default: Story = () => <Menu />
 
 Default.parameters = {
+  layout: 'fullscreen',
   backgrounds: {
     default: 'dark',
   },
