@@ -34,7 +34,7 @@ const Menu = () => {
         <CloseIcon aria-label="Close menu" onClick={() => setIsOpen(false)} />
         <S.MenuNav>
           <S.MenuLink href="#">Home</S.MenuLink>
-          <S.MenuLink href="#">Explore</S.MenuLink>
+          <S.MenuLink href="#">Store</S.MenuLink>
         </S.MenuNav>
 
         <S.RegisterBox>
