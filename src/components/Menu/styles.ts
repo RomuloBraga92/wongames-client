@@ -9,7 +9,7 @@ export const Container = styled.menu`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
-    padding: ${theme.spacings.xsmall} 0;
+    padding: ${theme.spacings.small} 0;
     position: relative;
   `}
 `
@@ -43,7 +43,13 @@ export const RightIconsContainer = styled.div`
   `}
 `
 
-export const MenuNav = styled.div``
+export const MenuNav = styled.div`
+  ${({ theme }) => css`
+    ${media.greaterThan('medium')`
+      margin-left: ${theme.spacings.small};
+    `}
+  `}
+`
 
 export const MenuLink = styled.a`
   ${({ theme }) => css`
@@ -52,6 +58,7 @@ export const MenuLink = styled.a`
     text-decoration: none;
     margin: 0.3rem ${theme.spacings.small} 0;
     text-align: center;
+    color: ${theme.colors.white};
 
     &:hover {
       &::after {
