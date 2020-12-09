@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
+import * as RibbonStyles from 'components/Ribbon/styles'
+
 type ImageProps = {
   src: string
 }
@@ -10,6 +12,16 @@ export const Container = styled.main`
 
   ${media.greaterThan('medium')`
     box-shadow: 0 0.4rem 0.5rem 0 rgba(0, 0, 0, 0.2);
+  `}
+
+  ${media.lessThan('large')`
+    ${RibbonStyles.Container}{
+      right:0;
+
+      &::before{
+        display: none;
+      }
+    }
   `}
 `
 

@@ -1,4 +1,6 @@
 import Button from 'components/Button'
+import { RibbonColors, RibbonSizes } from 'components/Ribbon'
+import Ribbon from 'components/Ribbon'
 import * as S from './styles'
 
 export type BannerProps = {
@@ -7,6 +9,9 @@ export type BannerProps = {
   subtitle: string
   buttonLabel: string
   buttonLink: string
+  ribbon?: React.ReactNode
+  ribbonColor?: RibbonColors
+  ribbonSize?: RibbonSizes
 }
 
 const Banner = ({
@@ -15,9 +20,17 @@ const Banner = ({
   subtitle,
   buttonLabel,
   buttonLink,
+  ribbon,
+  ribbonColor = 'primary',
+  ribbonSize = 'normal',
 }: BannerProps) => (
   <S.Container>
     <S.Image src={img} role="img" aria-label={title} />
+    {!!ribbon && (
+      <Ribbon color={ribbonColor} size={ribbonSize}>
+        {ribbon}
+      </Ribbon>
+    )}
 
     <S.BannerInfo>
       <S.Title>{title}</S.Title>
