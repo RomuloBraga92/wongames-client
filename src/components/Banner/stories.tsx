@@ -15,6 +15,9 @@ export default {
     subtitle: '<p>Play the new <strong>CrashLands</strong> season',
     buttonLabel: 'Buy now',
     buttonLink: '/games/defy-death',
+    ribbon: '',
+    ribbonColor: 'primary',
+    ribbonSize: 'normal',
   },
   parameters: {
     layout: 'fullscreen',
