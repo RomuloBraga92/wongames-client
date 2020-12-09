@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
-import Banner, { BannerProps } from './'
+import Banner, { BannerProps } from '.'
 
 export default {
   title: 'Banner',
@@ -15,9 +15,6 @@ export default {
     subtitle: '<p>Play the new <strong>CrashLands</strong> season',
     buttonLabel: 'Buy now',
     buttonLink: '/games/defy-death',
-    ribbon: '',
-    ribbonColor: 'primary',
-    ribbonSize: 'normal',
   },
   parameters: {
     layout: 'fullscreen',
@@ -37,5 +34,7 @@ export const WithRibbon: Story<BannerProps> = args => (
 )
 
 WithRibbon.args = {
-  ribbon: '20% Off',
+  ribbon: '20% OFF',
+  ribbonSize: 'normal',
+  ribbonColor: 'primary',
 }
