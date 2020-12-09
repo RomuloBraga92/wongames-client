@@ -9,7 +9,12 @@ export default {
     subtitle: 'Come see John’s new adventures',
     buttonLabel: 'Buy now',
     buttonLink: '/rdr2',
+    backgroundImage: '/img/red-dead-img.jpg',
   },
 } as Meta
 
 export const Default: Story<HighlightProps> = args => <Highlight {...args} />
+
+Default.parameters = {
+  layout: 'fullscreen',
+}
