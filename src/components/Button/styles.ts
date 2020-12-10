@@ -52,6 +52,7 @@ export const Container = styled.button<ContainerProps>`
     padding: ${theme.spacings.xxsmall};
     text-decoration: none;
     font-weight: ${theme.font.medium};
+    text-align: center;
 
     &:hover {
       background: linear-gradient(180deg, #e35565 0%, #d958a6 50%);
