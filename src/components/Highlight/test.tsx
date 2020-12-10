@@ -14,7 +14,7 @@ const props = {
 
 describe('<Highlight />', () => {
   it('should render the headings and the button', () => {
-    const { container } = renderWithTheme(<Highlight {...props} />)
+    renderWithTheme(<Highlight {...props} />)
 
     expect(
       screen.getByRole('heading', { name: /Heading 1/i }),
@@ -27,8 +27,6 @@ describe('<Highlight />', () => {
       'href',
       '/rdr2',
     )
-
-    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render a background image', () => {
