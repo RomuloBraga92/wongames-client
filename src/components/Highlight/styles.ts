@@ -3,10 +3,36 @@ import media from 'styled-media-query'
 
 import { HighlightProps } from '.'
 
-export type ContainerProps = Pick<HighlightProps, 'backgroundImage'>
+export type ContainerProps = Pick<
+  HighlightProps,
+  'backgroundImage' | 'alignment'
+>
+
+const containerModifiers = {
+  left: () => css`
+    grid-template-areas: 'floatimage contentitems';
+    grid-template-columns: 1.3fr 2fr;
+
+    ${Content} {
+      text-align: right;
+    }
+  `,
+
+  right: () => css`
+    grid-template-areas: 'contentitems floatimage';
+    grid-template-columns: 2fr 1.3fr;
+
+    ${Content} {
+      text-align: left;
+    }
+    ${FloatImage} {
+      justify-self: end;
+    }
+  `,
+}
 
 export const Container = styled.div<ContainerProps>`
-  ${({ backgroundImage }) => css`
+  ${({ backgroundImage, alignment }) => css`
     height: 23rem;
     position: relative;
     background-image: url(${backgroundImage});
@@ -27,6 +53,22 @@ export const Container = styled.div<ContainerProps>`
     ${media.greaterThan('medium')`
       height: 32rem;
     `}
+
+    ${containerModifiers[alignment!]()}
+  `}
+`
+
+export const FloatImage = styled.img`
+  ${({ theme }) => css`
+    z-index: ${theme.layers.base};
+    max-height: 23rem;
+    max-width: 100%;
+    grid-area: floatimage;
+    align-self: end;
+
+    ${media.greaterThan('medium')`
+      height: 28rem;
+    `}
   `}
 `
 
@@ -34,7 +76,7 @@ export const Content = styled.div`
   ${({ theme }) => css`
     z-index: ${theme.layers.base};
     padding: ${theme.spacings.xsmall};
-    text-align: right;
+    grid-area: contentitems;
 
     ${media.greaterThan('medium')`
       align-self: end;

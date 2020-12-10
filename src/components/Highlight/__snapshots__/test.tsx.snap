@@ -1,6 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Banner /> should render properly 1`] = `
+exports[`<Highlight /> should render the headings and the button 1`] = `
+.c0 {
+  height: 23rem;
+  position: relative;
+  background-image: url(/img/red-dead-img.jpg);
+  background-position: center center;
+  background-size: cover;
+  display: grid;
+  grid-template-areas: 'floatimage contentitems';
+  grid-template-columns: 1.3fr 2fr;
+}
+
+.c0::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(0,0,0,0.6);
+  top: 0;
+  left: 0;
+}
+
+.c0 .c1 {
+  text-align: right;
+}
+
+.c2 {
+  z-index: 10;
+  padding: 1.6rem;
+  grid-area: contentitems;
+}
+
+.c3 {
+  color: #FAFAFA;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.c4 {
+  color: #FAFAFA;
+  font-size: 1.4rem;
+  font-weight: 300;
+  margin-bottom: 3.2rem;
+}
+
 .c5 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -34,71 +78,18 @@ exports[`<Banner /> should render properly 1`] = `
   background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
 }
 
-.c0 {
-  position: relative;
-}
-
-.c1 {
-  width: 100%;
-  height: 23rem;
-  background-color: #EAEAEA;
-  background-image: url(https://source.unsplash.com/user/willianjusten/1042x580);
-  background-size: cover;
-  background-position: center center;
-}
-
-.c2 {
-  width: 100%;
-  background-color: rgba(0,0,0,0.7);
-  padding: 2.4rem;
-}
-
-.c3 {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #FAFAFA;
-}
-
-.c4 {
-  font-size: 1.4rem;
-  color: #FAFAFA;
-  font-weight: 400;
-  margin-bottom: 1.6rem;
-}
-
-.c4 strong {
-  color: #F231A5;
-  font-weight: 600;
-}
-
 @media (min-width:768px) {
   .c0 {
-    box-shadow: 0 0.4rem 0.5rem 0 rgba(0,0,0,0.2);
-  }
-}
-
-@media (max-width:1170px) {
-  .c0 .sc-gsTCUz {
-    right: 0;
-  }
-
-  .c0 .sc-gsTCUz::before {
-    display: none;
-  }
-}
-
-@media (min-width:768px) {
-  .c1 {
-    height: 58rem;
+    height: 32rem;
   }
 }
 
 @media (min-width:768px) {
   .c2 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 4.0rem border-radius:0 0 0.4rem 0.4rem;
+    -webkit-align-self: end;
+    -ms-flex-item-align: end;
+    align-self: end;
+    padding: 4.0rem;
   }
 }
 
@@ -114,42 +105,30 @@ exports[`<Banner /> should render properly 1`] = `
   }
 }
 
-<main
+<div
   class="c0"
 >
   <div
-    aria-label="Defy death"
-    class="c1"
-    role="img"
-    src="https://source.unsplash.com/user/willianjusten/1042x580"
-  />
-  <div
-    class="c2"
+    class="c1 c2"
   >
     <h2
       class="c3"
     >
-      Defy death
+      Heading 1
     </h2>
     <h3
       class="c4"
     >
-      <p>
-        Play the new 
-        <strong>
-          CrashLands
-        </strong>
-         season
-      </p>
+      Heading 2
     </h3>
     <a
       class="c5"
-      href="/games/defy-death"
+      href="/rdr2"
     >
       <span>
         Buy now
       </span>
     </a>
   </div>
-</main>
+</div>
 `
