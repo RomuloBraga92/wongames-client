@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css, DefaultTheme } from 'styled-components'
 
 export const Container = styled.article`
   ${({ theme }) => css`
@@ -96,17 +96,35 @@ export const BuyBox = styled.div`
   `}
 `
 
-export const Price = styled.div`
-  ${({ theme }) => css`
-    color: ${theme.colors.white};
-    font-size: ${theme.font.sizes.small};
-    font-weight: ${theme.font.bold};
+type PriceProps = {
+  isPromotional?: boolean
+}
+
+const priceModifiers = {
+  default: (theme: DefaultTheme) => css`
+    padding: 0 ${theme.spacings.xxsmall};
+    margin-right: calc(${theme.spacings.xxsmall} / 2);
     background-color: ${theme.colors.secondary};
     border-radius: ${theme.border.radius};
+    color: ${theme.colors.white};
+  `,
+
+  promotional: (theme: DefaultTheme) => css`
+    margin-right: ${theme.spacings.small};
+    color: ${theme.colors.gray};
+    text-decoration: line-through;
+  `,
+}
+
+export const Price = styled.div<PriceProps>`
+  ${({ theme, isPromotional }) => css`
+    font-size: ${theme.font.sizes.small};
+    font-weight: ${theme.font.bold};
     height: 3rem;
     display: inline-flex;
     align-items: center;
-    padding: 0 ${theme.spacings.xxsmall};
-    margin-right: calc(${theme.spacings.xxsmall} / 2);
+
+    ${!isPromotional && priceModifiers.default(theme)};
+    ${isPromotional && priceModifiers.promotional(theme)}
   `}
 `
