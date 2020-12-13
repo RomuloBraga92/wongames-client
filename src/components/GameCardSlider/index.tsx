@@ -8,14 +8,14 @@ import * as S from './styles'
 
 const settings: SliderSettings = {
   arrows: true,
-  slidesToShow: 4,
+  slidesToShow: 3.2,
   infinite: false,
   lazyLoad: 'ondemand',
   nextArrow: <ArrowRight aria-label="next games" />,
   prevArrow: <ArrowLeft aria-label="previous games" />,
   responsive: [
     {
-      breakpoint: 1050,
+      breakpoint: 1350,
       settings: {
         arrows: false,
         slidesToShow: 3.2,
