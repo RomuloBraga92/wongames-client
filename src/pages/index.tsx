@@ -1,5 +1,5 @@
-import Heading from 'components/Heading'
+import Home from 'templates/Home'
 
-export default function Home() {
-  return <Heading>Hello World</Heading>
+export default function MainPage() {
+  return <Home />
 }
