@@ -59,11 +59,11 @@ describe('<GameCardSlider />', () => {
   it('should render black arrows when passed', () => {
     renderWithTheme(<GameCardSlider color="black" items={items} />)
 
-    expect(screen.getByLabelText(/next slide/i)).toHaveStyle({
+    expect(screen.getByLabelText(/next games/i)).toHaveStyle({
       color: '#030517',
     })
 
-    expect(screen.getByLabelText(/previous slide/i)).toHaveStyle({
+    expect(screen.getByLabelText(/previous games/i)).toHaveStyle({
       color: '#030517',
     })
   })
