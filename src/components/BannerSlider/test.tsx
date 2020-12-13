@@ -32,8 +32,6 @@ describe('<BannerSlider />', () => {
   it('should render with 1 active item', () => {
     const { container } = renderWithTheme(<BannerSlider items={items} />)
 
-    expect(container.querySelectorAll('.slick-slide')).toHaveLength(2)
-
     expect(container.querySelectorAll('li.slick-active')).toHaveLength(1)
 
     expect(
@@ -41,7 +39,10 @@ describe('<BannerSlider />', () => {
     ).toBeInTheDocument()
 
     expect(
-      screen.getByRole('heading', { name: /defy death 2/i, hidden: true }),
+      screen.getAllByRole('heading', {
+        name: /defy death 2/i,
+        hidden: true,
+      })[0],
     ).toBeInTheDocument()
   })
 
