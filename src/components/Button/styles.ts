@@ -1,9 +1,10 @@
+import { darken } from 'polished'
 import styled, { css, DefaultTheme } from 'styled-components'
 import { ButtonProps } from '.'
 
 export type ContainerProps = {
   hasIcon: boolean
-} & Pick<ButtonProps, 'size' | 'fullWidth'>
+} & Pick<ButtonProps, 'size' | 'fullWidth' | 'minimal'>
 
 const containerModifiers = {
   small: (theme: DefaultTheme) => css`
@@ -36,10 +37,19 @@ const containerModifiers = {
       }
     }
   `,
+
+  minimal: (theme: DefaultTheme) => css`
+    background: none;
+    color: ${theme.colors.primary};
+
+    &:hover {
+      color: ${darken(0.1, theme.colors.primary)};
+    }
+  `,
 }
 
 export const Container = styled.button<ContainerProps>`
-  ${({ theme, size, hasIcon, fullWidth }) => css`
+  ${({ theme, size, hasIcon, fullWidth, minimal }) => css`
     display: inline-flex;
     background: linear-gradient(180deg, #ff5f5f 0%, #f062c0 50%);
     border-radius: ${theme.border.radius};
@@ -55,11 +65,14 @@ export const Container = styled.button<ContainerProps>`
     text-align: center;
 
     &:hover {
-      background: linear-gradient(180deg, #e35565 0%, #d958a6 50%);
+      background: ${minimal
+        ? 'none'
+        : `linear-gradient(180deg, #e35565 0%, #d958a6 50%)`};
     }
 
     ${!!size && containerModifiers[size](theme)}
     ${!!fullWidth && containerModifiers.fullWidth()}
+    ${!!minimal && containerModifiers.minimal(theme)}
     ${!!hasIcon && containerModifiers.withIcon(theme)}
   `}
 `
