@@ -12,7 +12,7 @@ const Checkbox = ({
   labelColor = 'white',
 }: CheckboxProps) => (
   <S.Container>
-    <input id={labelFor} type="checkbox" />
+    <S.Input id={labelFor} type="checkbox" />
     {!!label && (
       <S.Label labelColor={labelColor} htmlFor={labelFor}>
         {label}

@@ -7,3 +7,9 @@ export default {
 } as Meta
 
 export const Default: Story<CheckboxProps> = args => <Checkbox {...args} />
+
+Default.parameters = {
+  backgrounds: {
+    default: 'won-dark',
+  },
+}
