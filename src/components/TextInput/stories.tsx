@@ -3,7 +3,7 @@ import { Email } from '@styled-icons/material-outlined'
 import TextInput, { TextInputProps } from './'
 
 export default {
-  title: 'TextInput',
+  title: 'Form/TextInput',
   component: TextInput,
   args: {
     label: 'E-mail',
