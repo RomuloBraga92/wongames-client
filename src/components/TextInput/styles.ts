@@ -2,7 +2,9 @@ import styled, { css, DefaultTheme } from 'styled-components'
 import { TextInputProps } from '.'
 
 export type IconProps = Pick<TextInputProps, 'iconSide'>
-export type ContainerProps = Pick<TextInputProps, 'disabled'>
+export type ContainerProps = Pick<TextInputProps, 'disabled'> & {
+  error?: boolean
+}
 
 const containerModifiers = {
   disabled: (theme: DefaultTheme) => css`
@@ -17,11 +19,24 @@ const containerModifiers = {
       }
     }
   `,
+
+  error: (theme: DefaultTheme) => css`
+    ${Label},
+    ${Input},
+    ${Icon} {
+      color: ${theme.colors.red};
+    }
+
+    ${InputContainer} {
+      border-color: ${theme.colors.red};
+    }
+  `,
 }
 
 export const Container = styled.div<ContainerProps>`
-  ${({ theme, disabled }) => css`
+  ${({ theme, disabled, error }) => css`
     ${disabled && containerModifiers.disabled(theme)}
+    ${error && containerModifiers.error(theme)}
   `}
 `
 
@@ -72,5 +87,12 @@ export const Icon = styled.div<IconProps>`
     & > svg {
       width: 100%;
     }
+  `}
+`
+export const Error = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.colors.red};
+    font-size: ${theme.font.sizes.xsmall};
+    margin-top: calc(${theme.spacings.xxsmall} / 2);
   `}
 `

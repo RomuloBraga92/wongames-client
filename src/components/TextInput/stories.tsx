@@ -40,3 +40,13 @@ export const WithIcon: Story<TextInputProps> = args => (
 WithIcon.args = {
   icon: <Email />,
 }
+
+export const WithError: Story<TextInputProps> = args => (
+  <div style={{ maxWidth: 300, padding: 15 }}>
+    <TextInput {...args} />
+  </div>
+)
+
+WithError.args = {
+  error: 'Something went wrong!',
+}

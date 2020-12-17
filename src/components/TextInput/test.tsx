@@ -121,4 +121,10 @@ describe('<TextInput />', () => {
 
     expect(screen.getByRole('textbox')).not.toHaveFocus()
   })
+
+  it('should render an error message', () => {
+    renderWithTheme(<TextInput error="error message" />)
+
+    expect(screen.getByText(/error message/i)).toBeInTheDocument()
+  })
 })
