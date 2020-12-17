@@ -1,9 +1,29 @@
-import styled, { css } from 'styled-components'
+import styled, { css, DefaultTheme } from 'styled-components'
 import { TextInputProps } from '.'
 
 export type IconProps = Pick<TextInputProps, 'iconSide'>
+export type ContainerProps = Pick<TextInputProps, 'disabled'>
 
-export const Container = styled.div``
+const containerModifiers = {
+  disabled: (theme: DefaultTheme) => css`
+    ${Label},
+    ${Input},
+    ${Icon} {
+      cursor: not-allowed;
+      color: ${theme.colors.gray};
+
+      &::placeholder {
+        color: currentColor;
+      }
+    }
+  `,
+}
+
+export const Container = styled.div<ContainerProps>`
+  ${({ theme, disabled }) => css`
+    ${disabled && containerModifiers.disabled(theme)}
+  `}
+`
 
 export const Label = styled.label`
   ${({ theme }) => css`

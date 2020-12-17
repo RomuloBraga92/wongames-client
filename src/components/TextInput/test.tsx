@@ -86,4 +86,39 @@ describe('<TextInput />', () => {
       order: 1,
     })
   })
+
+  it('should not allow to type when disabled is passed', async () => {
+    const onText = jest.fn()
+    renderWithTheme(
+      <TextInput
+        onText={onText}
+        label="text"
+        labelFor="text"
+        id="text"
+        disabled
+      />,
+    )
+
+    const input = screen.getByRole('textbox')
+    const text = 'Some text'
+
+    expect(input).toBeDisabled()
+
+    userEvent.type(input, text)
+
+    await waitFor(() => {
+      expect(input).not.toHaveValue(text)
+      expect(onText).not.toHaveBeenCalled()
+    })
+  })
+
+  it('should not focus when tab is pressed and disabled is passed', () => {
+    renderWithTheme(<TextInput disabled />)
+
+    expect(document.body).toHaveFocus()
+
+    userEvent.tab()
+
+    expect(screen.getByRole('textbox')).not.toHaveFocus()
+  })
 })

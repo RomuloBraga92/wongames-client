@@ -8,6 +8,7 @@ export type TextInputProps = {
   onText?: (value: string) => void
   icon?: JSX.Element
   iconSide?: 'left' | 'right'
+  disabled?: boolean
 } & InputHTMLAttributes<HTMLInputElement>
 
 const TextInput = ({
@@ -17,6 +18,7 @@ const TextInput = ({
   onText,
   icon,
   iconSide = 'left',
+  disabled = false,
   ...props
 }: TextInputProps) => {
   const [text, setText] = useState(initialValue)
@@ -31,7 +33,7 @@ const TextInput = ({
   }
 
   return (
-    <S.Container>
+    <S.Container disabled={disabled}>
       {!!label && <S.Label htmlFor={labelFor}>{label}</S.Label>}
       <S.InputContainer>
         {!!icon && <S.Icon iconSide={iconSide}>{icon}</S.Icon>}
@@ -41,6 +43,7 @@ const TextInput = ({
           value={text}
           onChange={onChange}
           iconSide={iconSide}
+          disabled={disabled}
           {...props}
         />
       </S.InputContainer>
