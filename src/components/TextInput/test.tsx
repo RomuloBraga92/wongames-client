@@ -3,6 +3,7 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import userEvent from '@testing-library/user-event'
 
 import TextInput from './'
+import { Email } from '@styled-icons/material-outlined'
 
 describe('<TextInput />', () => {
   it('should render the TextInput with label when passed', () => {
@@ -61,5 +62,28 @@ describe('<TextInput />', () => {
     userEvent.tab()
 
     expect(screen.getByRole('textbox')).toHaveFocus()
+  })
+
+  it('should render an icon when passed', () => {
+    renderWithTheme(
+      <TextInput
+        icon={<Email data-testid="icon" />}
+        label="textinput"
+        labelFor="textinput"
+        id="textinput"
+      />,
+    )
+
+    expect(screen.getByTestId('icon')).toBeInTheDocument()
+  })
+
+  it('should render icon on right when passed', () => {
+    renderWithTheme(
+      <TextInput icon={<Email data-testid="icon" />} iconSide="right" />,
+    )
+
+    expect(screen.getByTestId('icon').parentElement).toHaveStyle({
+      order: 1,
+    })
   })
 })

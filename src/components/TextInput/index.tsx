@@ -6,6 +6,8 @@ export type TextInputProps = {
   labelFor?: string
   initialValue?: string
   onText?: (value: string) => void
+  icon?: JSX.Element
+  iconSide?: 'left' | 'right'
 } & InputHTMLAttributes<HTMLInputElement>
 
 const TextInput = ({
@@ -13,6 +15,8 @@ const TextInput = ({
   labelFor = '',
   initialValue = '',
   onText,
+  icon,
+  iconSide = 'left',
   ...props
 }: TextInputProps) => {
   const [text, setText] = useState(initialValue)
@@ -30,11 +34,13 @@ const TextInput = ({
     <S.Container>
       {!!label && <S.Label htmlFor={labelFor}>{label}</S.Label>}
       <S.InputContainer>
+        {!!icon && <S.Icon iconSide={iconSide}>{icon}</S.Icon>}
         <S.Input
           id={labelFor}
           type="text"
           value={text}
           onChange={onChange}
+          iconSide={iconSide}
           {...props}
         />
       </S.InputContainer>

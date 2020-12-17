@@ -1,4 +1,7 @@
 import styled, { css } from 'styled-components'
+import { TextInputProps } from '.'
+
+export type IconProps = Pick<TextInputProps, 'iconSide'>
 
 export const Container = styled.div``
 
@@ -13,6 +16,7 @@ export const Label = styled.label`
 export const InputContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
+    align-items: center;
     background: ${theme.colors.lightGray};
     border-radius: ${theme.border.radius};
     padding: 0 ${theme.spacings.xsmall};
@@ -24,15 +28,29 @@ export const InputContainer = styled.div`
   `}
 `
 
-export const Input = styled.input`
-  ${({ theme }) => css`
+export const Input = styled.input<IconProps>`
+  ${({ theme, iconSide }) => css`
     width: 100%;
     color: ${theme.colors.black};
     font-family: ${theme.font.family};
     font-size: ${theme.font.sizes.medium};
-    padding: ${theme.spacings.xxsmall} 0;
+    padding: ${theme.spacings.xxsmall};
+    padding-${iconSide}: ${theme.spacings.xxsmall};
     background: transparent;
     outline: none;
     border: 0;
+  `}
+`
+
+export const Icon = styled.div<IconProps>`
+  ${({ theme, iconSide }) => css`
+    display: flex;
+    width: 2.2rem;
+    color: ${theme.colors.gray};
+    order: ${iconSide === 'right' ? 1 : 0};
+
+    & > svg {
+      width: 100%;
+    }
   `}
 `
