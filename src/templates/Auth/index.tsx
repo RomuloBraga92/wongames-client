@@ -10,28 +10,34 @@ export type AuthProps = {
 const Auth = ({ title, children }: AuthProps) => (
   <S.Container>
     <S.BannerSide>
-      <Logo />
+      <S.BannerContainer>
+        <Logo />
 
-      <Heading size="huge" color="white">
-        All your favorite games in one place
-      </Heading>
-      <S.Subtitle>
-        <strong>WON</strong> is the best and most complete gaming platform.
-      </S.Subtitle>
+        <div>
+          <Heading size="huge" color="white">
+            All your favorite games in one place
+          </Heading>
+          <S.Subtitle>
+            <strong>WON</strong> is the best and most complete gaming platform.
+          </S.Subtitle>
+        </div>
 
-      <S.BannerFooter>
-        Won Games 2020 © Todos os Direitos Reservados
-      </S.BannerFooter>
+        <S.BannerFooter>
+          Won Games 2020 © Todos os Direitos Reservados
+        </S.BannerFooter>
+      </S.BannerContainer>
     </S.BannerSide>
 
     <S.Content>
-      <Logo color="black" size="large" />
+      <S.ContentContainer>
+        <Logo color="black" size="large" />
 
-      <Heading size="medium" lineColor="secondary" leftLine>
-        {title}
-      </Heading>
+        <Heading size="medium" lineColor="secondary" leftLine>
+          {title}
+        </Heading>
 
-      <S.ContentForm>{children}</S.ContentForm>
+        <S.ContentForm>{children}</S.ContentForm>
+      </S.ContentContainer>
     </S.Content>
   </S.Container>
 )
