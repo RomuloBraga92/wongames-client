@@ -59,7 +59,5 @@ describe('<Form />', () => {
         </div>
       </body>
     `)
-
-    expect(container.firstChild).toMatchSnapshot()
   })
 })
