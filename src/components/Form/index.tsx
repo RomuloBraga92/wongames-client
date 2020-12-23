@@ -3,7 +3,7 @@ import * as TextInputStyles from 'components/TextInput/styles'
 import * as ButtonStyles from 'components/Button/styles'
 import { darken } from 'polished'
 
-export const Container = styled.main`
+export const FormContainer = styled.main`
   ${({ theme }) => css`
     ${TextInputStyles.Container} {
       margin: ${theme.spacings.xxsmall} 0;

@@ -3,10 +3,11 @@ import Link from 'next/link'
 
 import Button from 'components/Button'
 import TextInput from 'components/TextInput'
-import * as S from './styles'
+
+import { FormContainer, FormLink } from 'components/Form'
 
 const FormSignUp = () => (
-  <S.Container>
+  <FormContainer>
     <form>
       <TextInput
         name="name"
@@ -37,14 +38,14 @@ const FormSignUp = () => (
         Sign up now
       </Button>
 
-      <S.FormLink>
+      <FormLink>
         {`Already have an account?  `}
         <Link href="/sign-in">
           <a>Sign in</a>
         </Link>
-      </S.FormLink>
+      </FormLink>
     </form>
-  </S.Container>
+  </FormContainer>
 )
 
 export default FormSignUp
