@@ -20,6 +20,7 @@ const commonSettings: SliderSettings = {
 const settings: SliderSettings = {
   ...commonSettings,
   slidesToShow: 4,
+  swipeToSlide: true,
   responsive: [
     {
       breakpoint: 1375,
