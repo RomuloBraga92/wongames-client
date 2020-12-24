@@ -84,3 +84,7 @@ export const Close = styled.div`
     text-align: right;
   `}
 `
+export const Content = styled.div`
+  max-width: min(80rem, 100%);
+  max-height: 60rem;
+`
