@@ -7,6 +7,9 @@ const props: GameDetailsProps = {
   developer: 'Different Tales',
   platforms: ['windows', 'mac', 'linux'],
   releaseDate: '2020-11-21T23:00:00',
+  publisher: 'Walkabout',
+  rating: 'BR0',
+  genres: ['Role-playing', 'Narrative'],
 }
 
 describe('<GameDetails />', () => {
@@ -41,5 +44,29 @@ describe('<GameDetails />', () => {
     renderWithTheme(<GameDetails {...props} />)
 
     expect(screen.getByText('Nov 21, 2020')).toBeInTheDocument()
+  })
+
+  it('should render publisher content', () => {
+    renderWithTheme(<GameDetails {...props} />)
+
+    expect(screen.getByText(/Walkabout/i)).toBeInTheDocument()
+  })
+
+  it('should render FREE when rating is BR0', () => {
+    renderWithTheme(<GameDetails {...props} />)
+
+    expect(screen.getByText('FREE')).toBeInTheDocument()
+  })
+
+  it('should render 18+ when rating is BR18', () => {
+    renderWithTheme(<GameDetails {...props} rating="BR18" />)
+
+    expect(screen.getByText(/18\+/i)).toBeInTheDocument()
+  })
+
+  it('should render a list of genres', () => {
+    renderWithTheme(<GameDetails {...props} />)
+
+    expect(screen.getByText(/Role-playing \/ Narrative/i)).toBeInTheDocument()
   })
 })

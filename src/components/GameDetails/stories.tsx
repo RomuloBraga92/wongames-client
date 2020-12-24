@@ -12,16 +12,21 @@ export default {
       default: 'won-dark',
     },
   },
-  args: {
-    platforms: gameDetailsMock.platforms,
-    developer: gameDetailsMock.developer,
-    releaseDate: gameDetailsMock.releaseDate,
-  },
+  args: gameDetailsMock,
   argTypes: {
+    releaseDate: {
+      control: 'date',
+    },
     platforms: {
       control: {
         type: 'inline-check',
-        options: ['windows', 'mac', 'linux'],
+        options: ['windows', 'linux', 'mac'],
+      },
+    },
+    genres: {
+      control: {
+        type: 'inline-check',
+        options: ['Role-playing', 'Narrative'],
       },
     },
   },
