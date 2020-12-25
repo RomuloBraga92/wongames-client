@@ -19,7 +19,7 @@ const commonSettings: SliderSettings = {
 
 const settings: SliderSettings = {
   ...commonSettings,
-  slidesToShow: 4,
+  slidesToShow: 4.2,
   swipeToSlide: true,
   responsive: [
     {
