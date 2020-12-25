@@ -46,4 +46,10 @@ const Section = styled(Container).attrs({ as: 'section' })`
 
 export const SectionGameInfo = styled(Section)``
 
-export const SectionGallery = styled(Section)``
+export const SectionGallery = styled(Section)`
+  display: none;
+
+  ${media.greaterThan('medium')`
+    display: block;
+  `}
+`
