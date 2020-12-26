@@ -29,8 +29,8 @@ const TextInput = ({
     const newValue = event.currentTarget.value
     setText(newValue)
 
-    if (onText) {
-      onText(newValue)
+    {
+      onText && onText(newValue)
     }
   }
 
