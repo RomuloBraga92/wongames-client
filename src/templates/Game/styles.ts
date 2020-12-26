@@ -7,7 +7,7 @@ export const Main = styled.main`
   margin-top: 20rem;
 
   ${media.greaterThan('medium')`
-    margin-top: 58rem;
+    margin-top: 40rem;
   `}
 `
 
@@ -51,5 +51,19 @@ export const SectionGallery = styled(Section)`
 
   ${media.greaterThan('medium')`
     display: block;
+  `}
+`
+
+export const SectionDescription = styled(Section)``
+
+export const SectionGameDetails = styled(Section)`
+  ${({ theme }) => css`
+    > div {
+      padding-bottom: ${theme.spacings.xlarge};
+      border-bottom: 0.1rem solid rgba(181, 181, 181, 0.3);
+      ${media.greaterThan('medium')`
+        padding-bottom: calc(${theme.spacings.xxlarge} * 2);
+      `}
+    }
   `}
 `
