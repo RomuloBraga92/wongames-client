@@ -15,7 +15,7 @@ describe('<GameItem />', () => {
 
     expect(
       screen.getByRole('img', { name: /red dead redemption 2/i }),
-    ).toBeInTheDocument()
+    ).toHaveAttribute('src', props.img)
     expect(
       screen.getByRole('heading', { name: /red dead redemption 2/i }),
     ).toBeInTheDocument()
