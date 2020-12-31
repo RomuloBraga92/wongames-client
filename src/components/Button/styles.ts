@@ -46,10 +46,17 @@ const containerModifiers = {
       color: ${darken(0.1, theme.colors.primary)};
     }
   `,
+
+  disabled: () => css`
+    &:disabled {
+      cursor: not-allowed;
+      filter: saturate(30%);
+    }
+  `,
 }
 
 export const Container = styled.button<ContainerProps>`
-  ${({ theme, size, hasIcon, fullWidth, minimal }) => css`
+  ${({ theme, size, hasIcon, fullWidth, minimal, disabled }) => css`
     display: inline-flex;
     background: linear-gradient(180deg, #ff5f5f 0%, #f062c0 50%);
     border-radius: ${theme.border.radius};
@@ -74,5 +81,6 @@ export const Container = styled.button<ContainerProps>`
     ${!!fullWidth && containerModifiers.fullWidth()}
     ${!!minimal && containerModifiers.minimal(theme)}
     ${!!hasIcon && containerModifiers.withIcon(theme)}
+    ${disabled && containerModifiers.disabled()};
   `}
 `
