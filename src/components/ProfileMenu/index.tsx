@@ -9,7 +9,7 @@ import Link from 'next/link'
 import * as S from './styles'
 
 export type ProfileMenuProps = {
-  activeLink?: '/profile/me' | '/profile/cards' | '/profile/orders'
+  activeLink?: '/profile/me' | '/profile/cards' | '/profile/orders' | string
 }
 
 const ProfileMenu = ({ activeLink }: ProfileMenuProps) => (
