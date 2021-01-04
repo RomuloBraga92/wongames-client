@@ -7,9 +7,7 @@ import { Email } from '@styled-icons/material-outlined'
 
 describe('<TextInput />', () => {
   it('should render the TextInput with label when passed', () => {
-    renderWithTheme(
-      <TextInput label="textinput" labelFor="textinput" id="textinput" />,
-    )
+    renderWithTheme(<TextInput label="textinput" name="label" />)
 
     expect(screen.getByRole('textbox')).toBeInTheDocument()
     expect(screen.getByLabelText('textinput')).toBeInTheDocument()
@@ -31,12 +29,7 @@ describe('<TextInput />', () => {
     const onText = jest.fn()
 
     renderWithTheme(
-      <TextInput
-        label="textinput"
-        labelFor="textinput"
-        id="textinput"
-        onText={onText}
-      />,
+      <TextInput label="textinput" name="TextField" onText={onText} />,
     )
 
     const input = screen.getByRole('textbox')
@@ -69,8 +62,7 @@ describe('<TextInput />', () => {
       <TextInput
         icon={<Email data-testid="icon" />}
         label="textinput"
-        labelFor="textinput"
-        id="textinput"
+        name="TextInput"
       />,
     )
 
@@ -90,13 +82,7 @@ describe('<TextInput />', () => {
   it('should not allow to type when disabled is passed', async () => {
     const onText = jest.fn()
     renderWithTheme(
-      <TextInput
-        onText={onText}
-        label="text"
-        labelFor="text"
-        id="text"
-        disabled
-      />,
+      <TextInput onText={onText} name="text" id="text" disabled />,
     )
 
     const input = screen.getByRole('textbox')

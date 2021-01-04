@@ -7,8 +7,7 @@ export default {
   component: TextInput,
   args: {
     label: 'E-mail',
-    labelFor: 'Email',
-    id: 'Email',
+    name: 'email',
     initialValue: '',
     placeholder: 'john.cage@gmail.com',
   },

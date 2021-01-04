@@ -3,7 +3,6 @@ import * as S from './styles'
 
 export type TextInputProps = {
   label?: string
-  labelFor?: string
   initialValue?: string
   onText?: (value: string) => void
   icon?: JSX.Element
@@ -14,13 +13,13 @@ export type TextInputProps = {
 
 const TextInput = ({
   label,
-  labelFor = '',
   initialValue = '',
   onText,
   icon,
   iconSide = 'left',
   disabled = false,
   error,
+  name,
   ...props
 }: TextInputProps) => {
   const [text, setText] = useState(initialValue)
@@ -36,16 +35,17 @@ const TextInput = ({
 
   return (
     <S.Container disabled={disabled} error={!!error}>
-      {!!label && <S.Label htmlFor={labelFor}>{label}</S.Label>}
+      {!!label && <S.Label htmlFor={name}>{label}</S.Label>}
       <S.InputContainer>
         {!!icon && <S.Icon iconSide={iconSide}>{icon}</S.Icon>}
         <S.Input
-          id={labelFor}
           type="text"
           value={text}
           onChange={onChange}
           iconSide={iconSide}
           disabled={disabled}
+          name={name}
+          {...(label ? { id: name } : {})}
           {...props}
         />
       </S.InputContainer>
