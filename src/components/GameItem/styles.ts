@@ -81,7 +81,7 @@ export const PaymentContent = styled.div`
     font-size: ${theme.font.sizes.small};
     display: flex;
     flex-direction: column;
-    min-width: 28rem;
+    min-width: 26rem;
     margin-top: ${theme.spacings.xsmall};
 
     ${media.greaterThan('medium')`
